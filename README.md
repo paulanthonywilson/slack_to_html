@@ -2,7 +2,7 @@
 
 Export your Slack group JSON archive to a HTML website.
 
-You can see what the website will look like here: [http://slack.elixirhq.com/](http://slack.elixirhq.com/).
+You can see what the website will look like here: [http://slack.elixirhq.com/](http://slack.elixirhq.com/) (if it was up).
 
 ## How to use
 
@@ -23,3 +23,5 @@ You can configure the output directory and the channels you want to ignore in `c
 * This was built for the Elixir Slack group so you will probably want to edit some of the templates and the stylesheet.
 * I used `python -m SimpleHTTPServer` to serve the files in development.
 * That i-stay-in-the-middle-of-the-page-footer is awful I know, need to work on it.
+* Paul updated and munged stuff while at LHR, waiting to connect to Denver
+* Would be nice to change so that it there's more than a single day's messages per page.

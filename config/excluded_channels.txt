@@ -72,7 +72,6 @@ project_balanced_elf
 project_brightside
 project_care_sourcer
 project_deliveroo
-project_deliveroo_q
 project_forrest
 project_mas
 project_ublox_priv
