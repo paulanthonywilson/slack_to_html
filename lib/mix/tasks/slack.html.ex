@@ -39,7 +39,6 @@ defmodule Mix.Tasks.Slack.Html do
     Mix.shell.info "Loading users from #{users_path}"
     case File.read(users_path) do
       {:ok, body} ->
-        users =
           Poison.decode!(body)
           |> Enum.map(fn user -> {user["id"], user} end)
           |> Enum.into(%{})
@@ -96,9 +95,9 @@ defmodule Mix.Tasks.Slack.Html do
     File.mkdir_p!(channel_path)
 
     messages =
-      Enum.group_by(channel["messages"], fn {d, _m} -> Timex.DateFormat.parse!(d, "{YYYY}-{0M}-{0D}").year end)
+      Enum.group_by(channel["messages"], fn {d, _m} -> Timex.parse!(d, "{YYYY}-{0M}-{0D}").year end)
       |> Enum.map(fn {year, messages} ->
-        {year, Enum.group_by(messages, fn {d, _m} -> Timex.DateFormat.parse!(d, "{YYYY}-{0M}-{0D}").month end)}
+        {year, Enum.group_by(messages, fn {d, _m} -> Timex.parse!(d, "{YYYY}-{0M}-{0D}").month end)}
       end)
       |> Enum.into(%{})
 

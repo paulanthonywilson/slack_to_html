@@ -7,7 +7,7 @@
     <a href="/<%= channel["name"] %>/">Back to #<%= channel["name"] %> index</a>
   </div>
 
-  <h3 class="messages-date">Archive from <%= Timex.DateFormat.parse!(date,  "%Y-%m-%d", :strftime) |> Timex.DateFormat.format!("%a, %d %b %Y", :strftime) %></h1>
+  <h3 class="messages-date">Archive from <%= Timex.parse!(date,  "%Y-%m-%d", :strftime) |> Timex.format!("%a, %d %b %Y", :strftime) %></h1>
 
   <div class="messages">
     <%= for message <- channel["messages"][date] do %>
@@ -20,7 +20,7 @@
         <div class="message-content">
           <span class="message-username"><%= user["name"] %></span>
           <span class="message-timestamp">
-            <%= String.split(message["ts"], ".") |>  Enum.at(0) |> Timex.DateFormat.parse!("{s-epoch}") |> Timex.DateFormat.format!("%H:%M:%S", :strftime) %> UTC
+            <%= String.split(message["ts"], ".") |>  Enum.at(0) |> Timex.parse!("{s-epoch}") |> Timex.format!("%H:%M:%S", :strftime) %> UTC
           </span>
           <div class="message-body"><%= text %></div>
         </div>

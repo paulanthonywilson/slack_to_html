@@ -1,8 +1,10 @@
 <div>
-  <p>Welcome to the archive for the <a href="http://slack.elixirhq.com/">Slack group</a> dedicated to <a href="http://elixir-lang.org/">elixir-lang</a>.</p>
-  <div class="channels">
+  <p>Archive for the interesting  stuff from Cultivate Slack</p>
+  <ul class="channels">
     <%= for {_channel_id, channel} <- Enum.sort(channels, fn {_, c1}, {_, c2} -> c1["name"] < c2["name"] end) do %>
+    <li>
       <a href="<%= channel["name"] %>/">#<%= channel["name"] %></a>
+    </li>
     <% end %>
-  </div>
+  </ul>
 </div>

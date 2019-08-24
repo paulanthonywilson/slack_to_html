@@ -2,12 +2,14 @@ defmodule SlackToHTML.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :slack_to_html,
-     version: "0.0.1",
-     elixir: "~> 1.1",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps]
+    [
+      app: :slack_to_html,
+      version: "0.0.1",
+      elixir: "~> 1.9",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application
@@ -27,8 +29,10 @@ defmodule SlackToHTML.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:poison, "~> 4.0"},
-     {:timex, "~> 3.2"},
-     {:tzdata, "== 0.5.19", override: true}]
+    [
+      {:poison, ">= 0.0.0"},
+      {:timex, ">= 0.0.0"},
+      {:tzdata, ">= 0.0.0"}
+    ]
   end
 end
